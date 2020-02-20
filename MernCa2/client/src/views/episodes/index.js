@@ -26,7 +26,7 @@ export default class EpisodeIndex extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/episodes/')
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + '/episodes') 
         .then(response => {
             console.log(response);
             this.setState({
