@@ -21,7 +21,7 @@ export default class CharacterIndex extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/characters/') //using axios, get the characters
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters') //using axios, get the characters
         .then(response => {
             console.log(response);
             this.setState({ //set the episodes in the state as the response is retrieved
