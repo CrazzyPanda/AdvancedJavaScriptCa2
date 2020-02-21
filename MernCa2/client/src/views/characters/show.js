@@ -17,7 +17,7 @@ export default class CharacterShow extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
 
-        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id})
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id}')
         .then(response => {
             console.log(response);
             this.setState({
@@ -33,7 +33,7 @@ export default class CharacterShow extends Component {
     onDelete = e => {
         const id = e.target.value;
 
-        axios.delete((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id})
+        axios.delete((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id}')
             .then((res) => {
                 this.props.history.push('/characters');
             })
