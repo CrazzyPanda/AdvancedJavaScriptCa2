@@ -110,7 +110,7 @@ export default class CharacterCreate extends Component {
         return (
             <Container>
                 <div>
-                    <h3>Add New Episode</h3>
+                    <h3>Add New Character</h3>
                     <Form onSubmit={this.onSubmit}>
                         <Card>
                             <Card.Body>
