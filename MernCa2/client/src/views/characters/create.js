@@ -97,7 +97,7 @@ export default class CharacterCreate extends Component {
 
         console.log(character);
 
-        axios.post('http://localhost:4000/characters', character) //posts character object to the backend
+        axios.post((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters') //posts character object to the backend
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
 
