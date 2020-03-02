@@ -92,7 +92,7 @@ export default class CharacterEdit extends Component {
 
         e.preventDefault();
 
-        axios.put(`http://localhost:4000/characters/${id}`, this.state.characters)
+        axios.put((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id}', this.state.characters)
             .then(res => {
                 console.log(res);
                 this.props.history.push('/characters');
