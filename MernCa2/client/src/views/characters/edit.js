@@ -33,7 +33,7 @@ export default class CharacterEdit extends Component {
     componentDidMount() {
         const {id} = this.props.match.params;
 
-        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id}')
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + `/characters/${id}`)
             .then((res) => {
                 console.log({msg: + res});
                 this.setState({
@@ -44,7 +44,7 @@ export default class CharacterEdit extends Component {
                 console.log(err);
             });
 
-        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + '/episodes')
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + `/episodes`)
             .then(res => this.setState({
                 episodes: res.data
             }))
@@ -92,7 +92,7 @@ export default class CharacterEdit extends Component {
 
         e.preventDefault();
 
-        axios.put((process.env.REACT_APP_API || 'http://localhost:4000') + '/characters/${id}', this.state.characters)
+        axios.put((process.env.REACT_APP_API || 'http://localhost:4000') + `/characters/${id}`, this.state.characters)
             .then(res => {
                 console.log(res);
                 this.props.history.push('/characters');
