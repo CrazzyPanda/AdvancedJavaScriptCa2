@@ -31,7 +31,7 @@ export default class EpisodeCreate extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/characters')
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + `/characters`) 
             .then(res => this.setState({
                 characters: res.data
             }))
@@ -89,7 +89,7 @@ export default class EpisodeCreate extends Component {
         }
         console.log(episode);
 
-        axios.post('http://localhost:4000/episodes', episode)
+        axios.post((process.env.REACT_APP_API || 'http://localhost:4000') + `/episodes`, episode)
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
 
