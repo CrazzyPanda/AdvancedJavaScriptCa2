@@ -36,7 +36,7 @@ export default class EpisodeEdit extends Component {
     componentDidMount() {
         const {id} = this.props.match.params;
 
-        axios.get(`http://localhost:4000/episodes/${id}`)
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + `/episodes/${id}`)
             .then((res) => {
                 console.log({msg: + res});
                 this.setState({
@@ -47,7 +47,7 @@ export default class EpisodeEdit extends Component {
                 console.log(err);
             });
 
-        axios.get(`http://localhost:4000/characters`)
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + `/characters`)
             .then(res => this.setState({
                 characters: res.data
             }))
@@ -95,7 +95,7 @@ export default class EpisodeEdit extends Component {
 
         e.preventDefault();
 
-        axios.put(`http://localhost:4000/episodes/${id}`, this.state.episodes)
+        axios.put((process.env.REACT_APP_API || 'http://localhost:4000') + `/episodes/${id}`, this.state.episodes)
             .then(res => {
                 console.log(res);
                 this.props.history.push('/episodes');
