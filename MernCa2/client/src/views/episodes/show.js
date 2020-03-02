@@ -21,7 +21,7 @@ export default class EpisodeShow extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
 
-        axios.get(`http://localhost:4000/episodes/${id}`)
+        axios.get((process.env.REACT_APP_API || 'http://localhost:4000') + `/episodes/${id}`)
         .then(response => {
             console.log(response);
             this.setState({
@@ -37,7 +37,7 @@ export default class EpisodeShow extends Component {
     onDelete = e => {
         const id = e.target.value;
 
-        axios.delete(`http://localhost:4000/episodes/${id}`)
+        axios.delete((process.env.REACT_APP_API || 'http://localhost:4000') + `/episodes/${id}`)
             .then((res) => {
                 this.props.history.push('/episodes');
             })
