@@ -6,5 +6,4 @@ Download the folder from github, open up the main folder in command prompt and r
 To run the the website, type into the command prompt for the main folder, 'npm run watch' and type into the command prompt for the client folder, run 'npm start'.
 
 Heroku Link: http://avatar-ui.herokuapp.com/
-
 Heroku Backend Link: https://avatar-data.herokuapp.com/
